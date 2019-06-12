@@ -19,7 +19,7 @@ public class SceneLoader : MonoBehaviour
 
     public void failScreen()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene("FailScreen");
     }
 
     public void quit()
