@@ -29,5 +29,7 @@ public class Ball : MonoBehaviour
 
             transform.position = paddlePosition + vectorToPaddle;
         }
+        Debug.Log(transform.position.x);
+        Debug.Log(transform.position.y);
     }
 }
