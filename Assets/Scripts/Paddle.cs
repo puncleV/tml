@@ -27,8 +27,8 @@ public class Paddle : MonoBehaviour
 
     private Vector2 getNewXPosition(float newX)
     {
-        Vector2 currentPosition = new Vector2(transform.position.x, transform.position.y);
-        currentPosition.x = Mathf.Clamp(newX, minX, maxX);
-        return currentPosition;
+        Vector2 newPosition = new Vector2(transform.position.x, transform.position.y);
+        newPosition.x = Mathf.Clamp(newX, minX, maxX);
+        return newPosition;
     }
 }
