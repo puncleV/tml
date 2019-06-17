@@ -25,11 +25,14 @@ public class Ball : MonoBehaviour
     {
         if (state == BallState.ON_PADDLE)
         {
-            Vector2 paddlePosition = new Vector2(mainPaddle.transform.position.x, mainPaddle.transform.position.y);
-
-            transform.position = paddlePosition + vectorToPaddle;
+            this.stayOnPaddle();
         }
-        Debug.Log(transform.position.x);
-        Debug.Log(transform.position.y);
+    }
+
+    void stayOnPaddle()
+    {
+        Vector2 paddlePosition = new Vector2(mainPaddle.transform.position.x, mainPaddle.transform.position.y);
+
+        transform.position = paddlePosition + vectorToPaddle;
     }
 }
