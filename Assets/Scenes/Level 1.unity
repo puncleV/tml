@@ -384,8 +384,9 @@ GameObject:
   - component: {fileID: 1093961111}
   - component: {fileID: 1093961110}
   - component: {fileID: 1093961112}
+  - component: {fileID: 1093961113}
   m_Layer: 0
-  m_Name: Block Square
+  m_Name: Block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -479,6 +480,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
+--- !u!114 &1093961113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093961109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb0eedcb815fc0f48aee594a1e00fea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
 --- !u!1 &1318591314
 GameObject:
   m_ObjectHideFlags: 0
@@ -691,14 +705,13 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.51806355, y: 0.25069082}
-      - {x: 0.0050981045, y: 0.2451244}
-      - {x: -0.5218015, y: 0.25}
-      - {x: -0.99558973, y: 0.04046738}
+    - - {x: 0.5306835, y: 0.2443428}
+      - {x: -0.51370144, y: 0.25}
+      - {x: -1, y: 0.034213394}
       - {x: -1, y: -0.25}
       - {x: 1, y: -0.25}
-      - {x: 0.9955902, y: 0.0438734}
-      - {x: 0.8096962, y: 0.12856156}
+      - {x: 1, y: 0.030711293}
+      - {x: 0.8246155, y: 0.112338424}
 --- !u!114 &1675200784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -811,7 +824,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: db79d8c0771e4b042b0bccb69f9fb865, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
