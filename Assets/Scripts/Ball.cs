@@ -23,13 +23,15 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (state == BallState.ON_PADDLE)
+        switch (state)
         {
-            this.stayOnPaddle();
+            case BallState.ON_PADDLE:
+                this.stayOnPaddle();
+            break;
         }
     }
 
-    void stayOnPaddle()
+    private void stayOnPaddle()
     {
         Vector2 paddlePosition = new Vector2(mainPaddle.transform.position.x, mainPaddle.transform.position.y);
 
