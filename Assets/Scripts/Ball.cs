@@ -27,7 +27,17 @@ public class Ball : MonoBehaviour
         {
             case BallState.ON_PADDLE:
                 this.stayOnPaddle();
+                this.launchBallOnClick();
             break;
+        }
+    }
+
+    private void launchBallOnClick()
+    {
+        if(Input.GetMouseButtonDown(0))
+        {
+            state = BallState.FREE_MOVEMENT;
+            this.launchBall();
         }
     }
 
@@ -36,5 +46,11 @@ public class Ball : MonoBehaviour
         Vector2 paddlePosition = new Vector2(mainPaddle.transform.position.x, mainPaddle.transform.position.y);
 
         transform.position = paddlePosition + vectorToPaddle;
+    }
+
+    private void launchBall ()
+    {
+        GetComponent<Rigidbody2D>().velocity = new Vector2(0, 10f);
+
     }
 }
