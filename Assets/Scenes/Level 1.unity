@@ -754,6 +754,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainPaddle: {fileID: 1675200784}
+  lauchVelocityX: 0
+  lauchVelocityY: 15
 --- !u!1 &1929722936
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,6 +5,8 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     [SerializeField] Paddle mainPaddle;
+    [SerializeField] float lauchVelocityX;
+    [SerializeField] float lauchVelocityY;
 
     BallState state = BallState.ON_PADDLE;
     Vector2 vectorToPaddle;
@@ -50,7 +52,7 @@ public class Ball : MonoBehaviour
 
     private void launchBall ()
     {
-        GetComponent<Rigidbody2D>().velocity = new Vector2(0, 10f);
+        GetComponent<Rigidbody2D>().velocity = new Vector2(lauchVelocityX, lauchVelocityY);
 
     }
 }
