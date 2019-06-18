@@ -7,6 +7,7 @@ public class Ball : MonoBehaviour
     [SerializeField] Paddle mainPaddle;
     [SerializeField] float lauchVelocityX;
     [SerializeField] float lauchVelocityY;
+    [SerializeField] AudioClip[] sounds; 
 
     BallState state = BallState.ON_PADDLE;
     Vector2 vectorToPaddle;
@@ -58,10 +59,27 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(state);
         if(state == BallState.FREE_MOVEMENT)
         {
-            GetComponent<AudioSource>().Play();
+            playCollisionSound();
         }
+    }
+
+    private void playCollisionSound ()
+    {
+        if (sounds.Length == 0)
+        {
+            Debug.LogError("Missed audio for ball collision");
+            return;
+        }
+
+        GetComponent<AudioSource>().PlayOneShot(getRandomSound());
+    }
+
+    private AudioClip getRandomSound()
+    {
+        int index = Random.Range(0, sounds.Length);
+
+        return sounds[index];
     }
 }
