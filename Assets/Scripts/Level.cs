@@ -6,9 +6,14 @@ public class Level : MonoBehaviour
 {
     SceneLoader sceneLoader;
     BlockCounter blockCounter;
-    private void Start()
+
+    public Level()
     {
         blockCounter = new BlockCounter();
+    }
+
+    private void Start()
+    {
         sceneLoader = FindObjectOfType<SceneLoader>();
     }
     
