@@ -12,20 +12,30 @@ public class Block : MonoBehaviour
 
     private void Start()
     {
-        gameState = FindObjectOfType<GameState>();
-        blockCounter = FindObjectOfType<BlockCounter>();
+        cacheReferences();
 
         blockCounter.add();
+    }
+
+    private void cacheReferences()
+    {
+        gameState = FindObjectOfType<GameState>();
+        blockCounter = FindObjectOfType<BlockCounter>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(--health == 0)
         {
-            gameState.onBlockDestroied();
-            AudioSource.PlayClipAtPoint(destroySound, transform.position);
-            blockCounter.delete();
-            Destroy(gameObject);
+            destroy();
         }
+    }
+
+    private void destroy()
+    {
+        gameState.onBlockDestroied();
+        AudioSource.PlayClipAtPoint(destroySound, transform.position);
+        blockCounter.delete();
+        Destroy(gameObject);
     }
 }
