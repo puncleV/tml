@@ -9,7 +9,6 @@ public class Block : MonoBehaviour
     [SerializeField] int points = 10;
 
     Level level;
-    GameState gameState;
 
     public int getPoints ()
     {
@@ -25,7 +24,6 @@ public class Block : MonoBehaviour
 
     private void cacheReferences()
     {
-        gameState = FindObjectOfType<GameState>();
         level = FindObjectOfType<Level>();
     }
 
@@ -39,15 +37,8 @@ public class Block : MonoBehaviour
 
     private void destroy()
     {
-        this.changeGameState();
         AudioSource.PlayClipAtPoint(destroySound, transform.position);
-        level.onBlockDestroied();
+        level.onBlockDestroied(this);
         Destroy(gameObject);
-    }
-
-    private void changeGameState ()
-    {
-        gameState.addToScore(this.points);
-        gameState.increaseSpeed();
     }
 }
