@@ -1,27 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameState : MonoBehaviour
 {
     [Range(0.01f, 10f)][SerializeField] float gameSpeedScale = 1;
     [Range(0.01f, 1f)] [SerializeField] float speedChangeStep = 0.01f;
 
+    [SerializeField] Text scoreText;
     [SerializeField] int score = 0;
-
-    public int getScore()
-    {
-        return score;
-    }
 
     private void Start()
     {
+        scoreText.text = score.ToString();
         Time.timeScale = gameSpeedScale;
     }
        
     public void addToScore (int points)
     {
         score += points;
+        scoreText.text = score.ToString();
     }
 
     public void increaseSpeed()

@@ -1178,13 +1178,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4563324696577321213, guid: aa55477ef863cba429a4f8ac7bdbaf9e,
         type: 3}
-      propertyPath: gameSpeedScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4563324696577321213, guid: aa55477ef863cba429a4f8ac7bdbaf9e,
-        type: 3}
-      propertyPath: speedChangeStep
-      value: 0.01
-      objectReference: {fileID: 0}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 2062417380}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa55477ef863cba429a4f8ac7bdbaf9e, type: 3}
