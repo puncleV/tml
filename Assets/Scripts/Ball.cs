@@ -7,8 +7,9 @@ public class Ball : MonoBehaviour
     [SerializeField] Paddle mainPaddle;
     [SerializeField] float lauchVelocityX;
     [SerializeField] float lauchVelocityY;
-    [SerializeField] AudioClip[] sounds; 
+    [SerializeField] AudioClip[] sounds;
 
+    AudioSource audoioSource;
     BallState state = BallState.ON_PADDLE;
     Vector2 vectorToPaddle;
 
@@ -21,6 +22,7 @@ public class Ball : MonoBehaviour
     void Start()
     {
         vectorToPaddle = transform.position - mainPaddle.transform.position;
+        audoioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -73,7 +75,7 @@ public class Ball : MonoBehaviour
             return;
         }
 
-        GetComponent<AudioSource>().PlayOneShot(getRandomSound());
+        audoioSource.PlayOneShot(getRandomSound());
     }
 
     private AudioClip getRandomSound()
