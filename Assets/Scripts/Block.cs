@@ -7,20 +7,20 @@ public class Block : MonoBehaviour
     [SerializeField] int health = 1;
     [SerializeField] AudioClip destroySound;
 
-    BlockCounter blockCounter;
+    Level level;
     GameState gameState;
 
     private void Start()
     {
         cacheReferences();
 
-        blockCounter.add();
+        level.blockInitialized();
     }
 
     private void cacheReferences()
     {
         gameState = FindObjectOfType<GameState>();
-        blockCounter = FindObjectOfType<BlockCounter>();
+        level = FindObjectOfType<Level>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -35,7 +35,7 @@ public class Block : MonoBehaviour
     {
         gameState.onBlockDestroied();
         AudioSource.PlayClipAtPoint(destroySound, transform.position);
-        blockCounter.delete();
+        level.onBlockDestroied();
         Destroy(gameObject);
     }
 }

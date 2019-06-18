@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class BlockCounter : MonoBehaviour
 {
-    [SerializeField] SceneLoader sceneLoader;
-
     int blocksCount;
+
+    public int getCount()
+    {
+        return blocksCount;
+    }
 
     public void add()
     {
@@ -16,10 +19,5 @@ public class BlockCounter : MonoBehaviour
     public void delete ()
     {
         blocksCount--;
-
-        if (blocksCount == 0)
-        {
-            sceneLoader.loadNextScene();
-        }
     }
 }
