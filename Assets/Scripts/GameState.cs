@@ -9,6 +9,11 @@ public class GameState : MonoBehaviour
 
     [SerializeField] int score = 0;
 
+    public int getScore()
+    {
+        return score;
+    }
+
     private void Start()
     {
         Time.timeScale = gameSpeedScale;

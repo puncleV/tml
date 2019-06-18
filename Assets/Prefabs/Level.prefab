@@ -43,3 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d411e20eb9c86674aae20d531bfcf59b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blocksCount: 0
+  scoreText: {fileID: 0}
