@@ -8,10 +8,13 @@ public class Block : MonoBehaviour
     [SerializeField] AudioClip destroySound;
 
     BlockCounter blockCounter;
-       
+    GameState gameState;
+
     private void Start()
     {
+        gameState = FindObjectOfType<GameState>();
         blockCounter = FindObjectOfType<BlockCounter>();
+
         blockCounter.add();
     }
 
@@ -19,6 +22,7 @@ public class Block : MonoBehaviour
     {
         if(--health == 0)
         {
+            gameState.onBlockDestroied();
             AudioSource.PlayClipAtPoint(destroySound, transform.position);
             blockCounter.delete();
             Destroy(gameObject);
