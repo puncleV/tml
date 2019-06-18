@@ -8,6 +8,11 @@ public class BlockCounter : MonoBehaviour
 
     List<Block> blocks;
 
+    private void Start()
+    {
+        blocks = new List<Block>();
+    }
+
     public void add(Block block)
     {
         blocks.Add(block);

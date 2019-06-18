@@ -6,10 +6,12 @@ public class Block : MonoBehaviour
 {
     [SerializeField] int health = 1;
     [SerializeField] AudioClip destroySound;
-    [SerializeField] BlockCounter blockCounter;
 
+    BlockCounter blockCounter;
+       
     private void Start()
     {
+        blockCounter = FindObjectOfType<BlockCounter>();
         blockCounter.add(this);
     }
 
