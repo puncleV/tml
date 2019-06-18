@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class BlockCounter : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] SceneLoader sceneLoader;
 
-    // Update is called once per frame
-    void Update()
+    List<Block> blocks;
+
+    private void add(Block block)
     {
-        
+        blocks.Add(block);
+    }
+    
+    private void delete (Block block)
+    {
+        blocks.Remove(block);
+
+        if (blocks.Count == 0)
+        {
+            sceneLoader.loadNextScene();
+        }
     }
 }

@@ -6,6 +6,7 @@ public class Block : MonoBehaviour
 {
     [SerializeField] int health = 1;
     [SerializeField] AudioClip destroySound;
+    [SerializeField] BlockCounter blockCounter;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
