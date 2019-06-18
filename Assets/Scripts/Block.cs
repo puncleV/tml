@@ -6,9 +6,15 @@ public class Block : MonoBehaviour
 {
     [SerializeField] int health = 1;
     [SerializeField] AudioClip destroySound;
+    [SerializeField] int score = 10;
 
     Level level;
     GameState gameState;
+
+    public int getScore ()
+    {
+        return this.score;
+    }
 
     private void Start()
     {
@@ -35,7 +41,7 @@ public class Block : MonoBehaviour
     {
         gameState.onBlockDestroied();
         AudioSource.PlayClipAtPoint(destroySound, transform.position);
-        level.onBlockDestroied();
+        level.onBlockDestroied(this);
         Destroy(gameObject);
     }
 }

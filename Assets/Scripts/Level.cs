@@ -5,7 +5,9 @@ using UnityEngine;
 public class Level : MonoBehaviour
 {
     SceneLoader sceneLoader;
+
     [SerializeField] int blocksCount = 0;
+    [SerializeField] int score = 0;
 
     private void Start()
     {
@@ -17,8 +19,9 @@ public class Level : MonoBehaviour
         blocksCount++;
     }
 
-    public void onBlockDestroied()
+    public void onBlockDestroied(Block block)
     {
+        score += block.getScore();
 
         if(--blocksCount == 0)
         {
