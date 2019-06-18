@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GameState : MonoBehaviour
 {
-    [SerializeField] float gameSpeedScale = 1;
-    [SerializeField] float speedChangeStep = 0.01f;
+    [Range(0.01f, 10f)][SerializeField] float gameSpeedScale = 1;
+    [Range(0.01f, 1f)] [SerializeField] float speedChangeStep = 0.01f;
 
     private void Start()
     {
