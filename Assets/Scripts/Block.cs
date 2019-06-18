@@ -8,11 +8,17 @@ public class Block : MonoBehaviour
     [SerializeField] AudioClip destroySound;
     [SerializeField] BlockCounter blockCounter;
 
+    private void Start()
+    {
+        blockCounter.add(this);
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(--health == 0)
         {
             AudioSource.PlayClipAtPoint(destroySound, transform.position);
+            blockCounter.delete(this);
             Destroy(gameObject);
         }
     }
