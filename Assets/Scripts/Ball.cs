@@ -58,6 +58,10 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        GetComponent<AudioSource>().Play();
+        Debug.Log(state);
+        if(state == BallState.FREE_MOVEMENT)
+        {
+            GetComponent<AudioSource>().Play();
+        }
     }
 }
