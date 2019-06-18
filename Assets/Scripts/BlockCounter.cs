@@ -6,23 +6,18 @@ public class BlockCounter : MonoBehaviour
 {
     [SerializeField] SceneLoader sceneLoader;
 
-    List<Block> blocks;
+    int blocksCount;
 
-    private void Start()
+    public void add()
     {
-        blocks = new List<Block>();
+        blocksCount++;
     }
 
-    public void add(Block block)
+    public void delete ()
     {
-        blocks.Add(block);
-    }
+        blocksCount--;
 
-    public void delete (Block block)
-    {
-        blocks.Remove(block);
-
-        if (blocks.Count == 0)
+        if (blocksCount == 0)
         {
             sceneLoader.loadNextScene();
         }

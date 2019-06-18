@@ -12,7 +12,7 @@ public class Block : MonoBehaviour
     private void Start()
     {
         blockCounter = FindObjectOfType<BlockCounter>();
-        blockCounter.add(this);
+        blockCounter.add();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -20,7 +20,7 @@ public class Block : MonoBehaviour
         if(--health == 0)
         {
             AudioSource.PlayClipAtPoint(destroySound, transform.position);
-            blockCounter.delete(this);
+            blockCounter.delete();
             Destroy(gameObject);
         }
     }
