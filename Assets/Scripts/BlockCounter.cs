@@ -8,12 +8,12 @@ public class BlockCounter : MonoBehaviour
 
     List<Block> blocks;
 
-    private void add(Block block)
+    public void add(Block block)
     {
         blocks.Add(block);
     }
-    
-    private void delete (Block block)
+
+    public void delete (Block block)
     {
         blocks.Remove(block);
 
