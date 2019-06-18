@@ -39,9 +39,9 @@ public class Block : MonoBehaviour
 
     private void destroy()
     {
-        gameState.onBlockDestroied();
+        gameState.onBlockDestroied(this);
         AudioSource.PlayClipAtPoint(destroySound, transform.position);
-        level.onBlockDestroied(this);
+        level.onBlockDestroied();
         Destroy(gameObject);
     }
 }

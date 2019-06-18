@@ -7,13 +7,16 @@ public class GameState : MonoBehaviour
     [Range(0.01f, 10f)][SerializeField] float gameSpeedScale = 1;
     [Range(0.01f, 1f)] [SerializeField] float speedChangeStep = 0.01f;
 
+    [SerializeField] int score = 0;
+
     private void Start()
     {
         Time.timeScale = gameSpeedScale;
     }
 
-    public void onBlockDestroied()
+    public void onBlockDestroied(Block block)
     {
+        score += block.getScore();
         increaseSpeed();
     }
 
