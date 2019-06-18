@@ -5,12 +5,7 @@ using UnityEngine;
 public class Level : MonoBehaviour
 {
     SceneLoader sceneLoader;
-    BlockCounter blockCounter;
-
-    public Level()
-    {
-        blockCounter = new BlockCounter();
-    }
+    [SerializeField] int blocksCount = 0;
 
     private void Start()
     {
@@ -19,14 +14,13 @@ public class Level : MonoBehaviour
     
     public void blockInitialized()
     {
-        blockCounter.add();
+        blocksCount++;
     }
 
     public void onBlockDestroied()
     {
-        blockCounter.delete();
 
-        if(blockCounter.getCount() == 0)
+        if(--blocksCount == 0)
         {
             sceneLoader.loadNextScene();
         }
