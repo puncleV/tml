@@ -6,14 +6,14 @@ public class Block : MonoBehaviour
 {
     [SerializeField] int health = 1;
     [SerializeField] AudioClip destroySound;
-    [SerializeField] int score = 10;
+    [SerializeField] int points = 10;
 
     Level level;
     GameState gameState;
 
-    public int getScore ()
+    public int getPoints ()
     {
-        return this.score;
+        return this.points;
     }
 
     private void Start()

@@ -16,7 +16,7 @@ public class GameState : MonoBehaviour
 
     public void onBlockDestroied(Block block)
     {
-        score += block.getScore();
+        score += block.getPoints();
         increaseSpeed();
     }
 
