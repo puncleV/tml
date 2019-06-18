@@ -13,14 +13,13 @@ public class GameState : MonoBehaviour
     {
         Time.timeScale = gameSpeedScale;
     }
-
-    public void onBlockDestroied(Block block)
+       
+    public void addToScore (int points)
     {
-        score += block.getPoints();
-        increaseSpeed();
+        score += points;
     }
 
-    private void increaseSpeed()
+    public void increaseSpeed()
     {
         gameSpeedScale += speedChangeStep;
         Time.timeScale = gameSpeedScale;
