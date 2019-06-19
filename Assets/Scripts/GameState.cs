@@ -11,6 +11,19 @@ public class GameState : MonoBehaviour
     [SerializeField] Text scoreText;
     [SerializeField] int score = 0;
 
+    private void Awake()
+    {
+        int instancesCount = FindObjectsOfType<GameState>().Length;
+        if(instancesCount > 1)
+        {
+            gameObject.SetActive(false);
+            Destroy(gameObject);
+        } else
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+
     private void Start()
     {
         scoreText.text = score.ToString();
