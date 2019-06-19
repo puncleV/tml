@@ -41,4 +41,9 @@ public class GameState : MonoBehaviour
         gameSpeedScale += speedChangeStep;
         Time.timeScale = gameSpeedScale;
     }
+
+    public void reset()
+    {
+        Destroy(gameObject);
+    }
 }
