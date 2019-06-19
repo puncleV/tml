@@ -9,6 +9,7 @@ public class Block : MonoBehaviour
     [SerializeField] int points = 10;
     [SerializeField] GameObject blockSparklesVfx;
 
+
     Level level;
 
     public int getPoints ()
@@ -19,8 +20,15 @@ public class Block : MonoBehaviour
     private void Start()
     {
         cacheReferences();
+        countBreakableBlock();
+    }
 
-        level.blockInitialized();
+    private void countBreakableBlock()
+    {
+        if (tag == "Breakable")
+        {
+            level.blockInitialized();
+        }
     }
 
     private void cacheReferences()
@@ -30,7 +38,12 @@ public class Block : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(--health == 0)
+        decreaseBreakableHp();
+    }
+
+    private void decreaseBreakableHp ()
+    {
+        if (--health == 0 && tag == "Breakable")
         {
             destroy();
         }

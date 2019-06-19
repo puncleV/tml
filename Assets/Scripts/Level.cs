@@ -7,7 +7,7 @@ public class Level : MonoBehaviour
     SceneLoader sceneLoader;
     GameState gameState;
 
-    [SerializeField] int blocksCount = 0;
+    [SerializeField] int breakableBlocksCount = 0;
 
     private void Start()
     {
@@ -17,7 +17,7 @@ public class Level : MonoBehaviour
     
     public void blockInitialized()
     {
-        blocksCount++;
+        breakableBlocksCount++;
     }
 
     public void onBlockDestroied(Block block)
@@ -25,7 +25,7 @@ public class Level : MonoBehaviour
         changeScore(block.getPoints());
         gameState.increaseSpeed();
     
-        if (--blocksCount == 0)
+        if (--breakableBlocksCount == 0)
         {
             sceneLoader.loadNextScene();
         }
