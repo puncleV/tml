@@ -123,3 +123,6 @@ MonoBehaviour:
   destroySound: {fileID: 8300000, guid: d23b1e9f72089404bbd9821bb8afe811, type: 3}
   points: 10
   blockSparklesVfx: {fileID: 100000, guid: 7d846c02296ef4dc4abff04ce3e5262c, type: 3}
+  damageSprites:
+  - {fileID: 21300000, guid: 798a97d6d3f5f05469da15039769b2b1, type: 3}
+  - {fileID: 21300000, guid: 7eb72a43637cf5d42b78dd393580ef97, type: 3}

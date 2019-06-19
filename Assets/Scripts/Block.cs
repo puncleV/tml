@@ -8,9 +8,11 @@ public class Block : MonoBehaviour
     [SerializeField] AudioClip destroySound;
     [SerializeField] int points = 10;
     [SerializeField] GameObject blockSparklesVfx;
-
+    [SerializeField] Sprite[] damageSprites;
 
     Level level;
+
+    int hitsTaken = 0;
 
     public int getPoints ()
     {
@@ -43,10 +45,31 @@ public class Block : MonoBehaviour
 
     private void decreaseBreakableHp ()
     {
-        if (--health == 0 && tag == "Breakable")
+        if (tag == "Breakable")
+        {
+            handleHit();
+        }
+    }
+
+    private void handleHit()
+    {
+        hitsTaken++;
+        changeSprite();
+       
+
+        if (hitsTaken == health)
         {
             destroy();
         }
+    }
+
+    private void changeSprite()
+    {
+        int spriteIndex = Mathf.Clamp(
+            Mathf.FloorToInt(((float) hitsTaken / (float) health ) * (float) damageSprites.Length), 0, damageSprites.Length - 1
+            );
+
+        GetComponent<SpriteRenderer>().sprite = damageSprites[spriteIndex];
     }
 
     private void destroy()
