@@ -7,6 +7,7 @@ public class Block : MonoBehaviour
     [SerializeField] int health = 1;
     [SerializeField] AudioClip destroySound;
     [SerializeField] int points = 10;
+    [SerializeField] GameObject blockSparklesVfx;
 
     Level level;
 
@@ -38,7 +39,14 @@ public class Block : MonoBehaviour
     private void destroy()
     {
         AudioSource.PlayClipAtPoint(destroySound, transform.position);
+        triggerSparkles();
         level.onBlockDestroied(this);
         Destroy(gameObject);
+    }
+
+    private void triggerSparkles()
+    {
+        GameObject sparkles = Object.Instantiate(blockSparklesVfx, transform.position, transform.rotation);
+        Destroy(sparkles, 0.2f);
     }
 }

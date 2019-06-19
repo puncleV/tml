@@ -121,5 +121,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   destroySound: {fileID: 8300000, guid: d23b1e9f72089404bbd9821bb8afe811, type: 3}
-  blockCounter: {fileID: 4803270642708364400, guid: 66e3c3a740137fc4f9ae5cad3f704468,
-    type: 3}
+  points: 10
+  blockSparklesVfx: {fileID: 100000, guid: 7d846c02296ef4dc4abff04ce3e5262c, type: 3}
