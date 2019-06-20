@@ -10,6 +10,7 @@ public class GameState : MonoBehaviour
 
     [SerializeField] Text scoreText;
     [SerializeField] int score = 0;
+    [SerializeField] bool autoplay = false;
 
     private void Awake()
     {
@@ -45,5 +46,10 @@ public class GameState : MonoBehaviour
     public void reset()
     {
         Destroy(gameObject);
+    }
+
+    public bool isAutoPlay()
+    {
+        return autoplay;
     }
 }

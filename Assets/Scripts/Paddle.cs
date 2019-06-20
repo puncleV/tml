@@ -20,15 +20,24 @@ public class Paddle : MonoBehaviour
 
     private void move()
     {
-        float newX = Input.mousePosition.x / Screen.width * units;
-
-        transform.position = this.getNewXPosition(newX);
-    }
-
-    private Vector2 getNewXPosition(float newX)
-    {
+        float newX = getXPos();
         Vector2 newPosition = new Vector2(transform.position.x, transform.position.y);
         newPosition.x = Mathf.Clamp(newX, minX, maxX);
-        return newPosition;
+        transform.position = newPosition;
+    }
+
+    private float getXPos()
+    {
+        bool autoplayOn = FindObjectOfType<GameState>().isAutoPlay();
+        Debug.Log(autoplayOn);
+        if(autoplayOn)
+        {
+            Debug.Log(FindObjectOfType<Ball>().transform.position.x);
+
+            return FindObjectOfType<Ball>().transform.position.x;
+        } else
+        {
+            return Input.mousePosition.x / Screen.width * units;
+        }
     }
 }
