@@ -7,9 +7,12 @@ public class Ball : MonoBehaviour
     [SerializeField] Paddle mainPaddle;
     [SerializeField] float lauchVelocityX;
     [SerializeField] float lauchVelocityY;
+    [SerializeField] float randomFactor = 0.4f;
     [SerializeField] AudioClip[] sounds;
 
     AudioSource audoioSource;
+    Rigidbody2D rigidBody;
+
     BallState state = BallState.ON_PADDLE;
     Vector2 vectorToPaddle;
 
@@ -23,6 +26,7 @@ public class Ball : MonoBehaviour
     {
         vectorToPaddle = transform.position - mainPaddle.transform.position;
         audoioSource = GetComponent<AudioSource>();
+        rigidBody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -55,16 +59,29 @@ public class Ball : MonoBehaviour
 
     private void launchBall ()
     {
-        GetComponent<Rigidbody2D>().velocity = new Vector2(lauchVelocityX, lauchVelocityY);
+        rigidBody.velocity = new Vector2(lauchVelocityX, lauchVelocityY);
 
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(state == BallState.FREE_MOVEMENT)
+
+
+        if (state == BallState.FREE_MOVEMENT)
         {
             playCollisionSound();
+            this.tweakVelocity();
         }
+    }
+
+    private void tweakVelocity ()
+    {
+        Vector2 velocityTweak = new Vector2(
+            Random.Range(0, randomFactor),
+            Random.Range(0, randomFactor)
+        );
+
+        rigidBody.velocity += velocityTweak;
     }
 
     private void playCollisionSound ()
