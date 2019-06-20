@@ -55,7 +55,6 @@ public class Block : MonoBehaviour
     {
         hitsTaken++;
         changeSprite();
-       
 
         if (hitsTaken == health)
         {
@@ -75,7 +74,7 @@ public class Block : MonoBehaviour
     private void destroy()
     {
         AudioSource.PlayClipAtPoint(destroySound, transform.position);
-        triggerSparkles();
+        // triggerSparkles();
         level.onBlockDestroied(this);
         Destroy(gameObject);
     }
