@@ -134,7 +134,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPaddle: {fileID: 0}
   lauchVelocityX: 0
-  lauchVelocityY: 15
+  lauchVelocityY: 12
+  randomFactor: 0.5
   sounds:
   - {fileID: 8300000, guid: 132e7ca0a6dc0de4798e347f32bbe3b4, type: 3}
   - {fileID: 8300000, guid: 5923c19315ce7e24c8f127cfbb76a419, type: 3}
